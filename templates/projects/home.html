@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% extends "header.html" %} {% block body%}
+
+<body>
+    <div class="main-content">
+        <div id="dashboard" class="content">
+            {% include "projects/dashboard.html" %}
+        </div>
+        <div id="task" class="content">
+            {% include "projects/task.html" %}
+        </div>
+
+        <div id="todo" class="content options_div">
+            <h1>To-Do</h1>
+            <ul>
+                <li>Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li>
+            </ul>
+        </div>
+        <div id="inprocess" class="content options_div">
+            <h1>In Process</h1>
+            <ul>
+                <li>Task A</li>
+                <li>Task B</li>
+                <li>Task C</li>
+            </ul>
+        </div>
+        <div id="done" class="content options_div">
+            <h1>Done</h1>
+            <ul>
+                <li>Task X</li>
+                <li>Task Y</li>
+                <li>Task Z</li>
+            </ul>
+        </div>
+        <div id="project-settings" class="content options_div">
+            {% include "projects/settings.html" %}
+        </div>
+        <div id="team" class="content options_div">
+            <h1>Team Members</h1>
+            <ul>
+                <li>Member 1</li>
+                <li>Member 2</li>
+                <li>Member 3</li>
+            </ul>
+        </div>
+    </div>
+    <script src="{{url_for('static',filename='normal_file.js')}}"></script>
+</body>
+{% endblock %}
+
+</html>
