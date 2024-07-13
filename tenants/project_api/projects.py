@@ -27,7 +27,8 @@ def delete_task():
 
 @project_api.route('/project_dashboard')
 def project_dashboard():
-    return "Project Dashboard"
+    return render_template('projects/dashboard.html')
+
 
 @project_api.route('/settings')
 def settings():

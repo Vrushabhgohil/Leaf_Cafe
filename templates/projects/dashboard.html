@@ -12,16 +12,18 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+{% extends "./projects/header.html" %} {% block body%}
+
 <body>
     <div class="main container">
         <p class="settings_title mt-4">
-            vrushabh Gohil / My College Project / project settings
+            vrushabh Gohil / My College Project
         </p>
         <h3>Details</h3>
 
         <div class="main_update ">
             <div class="input-field">
-                <input type="text" name="" id="" class="mt-2 w-25" placeholder="Search">
+                <input type="text" name="" id="" class="search_input mt-2" placeholder="Search">
             </div>
 
             <div class="main_data_project mt-5">
@@ -72,4 +74,5 @@
     </div>
     
 </body>
+{% endblock %}
 </html>

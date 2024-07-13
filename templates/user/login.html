@@ -13,12 +13,13 @@
 
 <body>
     <!-- Logo -->
-    <img src="{{url_for('static',filename='logo.png')}}" alt="" srcset="" class="logo_img">
+        <img src="{{url_for('static',filename='logo.png')}}" alt="" srcset="" class="logo_img">
 
     <!-- Signup Title -->
     <div class="signup_header text-center">
-        <h1 class="signup_title  mt-3 display-4 font-bold">Log In</h1>
-        <p class="mt-3">If you haven't any account... <a href="{{url_for('user_api.signup')}}" class="text-decoration-none">Sign up</a></p>
+        <h1 class="signup_title  mt-3 display-5 font-bold">Log In</h1>
+        <p class="mt-3">If you haven't any account... <a href="{{url_for('user_api.signup')}}"
+                class="text-decoration-none">Sign up</a></p>
     </div>
 
     <!-- Sign Up Form -->
@@ -27,14 +28,17 @@
             <input type="email" name="email" id="" placeholder="Email"><br>
             <input type="password" name="password" id="" placeholder="Password"><br>
             <a href="#" class="forget_password">Forget Password?</a> <br>
-            <button class="btn signup_btn">
-                <a href="{{url_for('user_api.home')}}" class="text-decoration-none">
-                Login</a></button>
+            <a href="{{url_for('project_api.project_dashboard')}}" class="text-decoration-none">
+                <button class="btn signup_btn">
+                    Login</button></a>
         </div>
-        <div class="line_or"><h6> OR </h6></div>
+        <div class="line_or">
+            <h6> OR </h6>
+        </div>
         <div>
             <button class="social_login">
-                <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" srcset="">
+                <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt=""
+                    srcset="">
                 Continue With Google</button> <br>
             <button class="social_login new_button">
                 <img src="https://i.pinimg.com/736x/ac/57/3b/ac573b439cde3dec8ca1c6739ae7f628.jpg" alt="" srcset="">

@@ -19,7 +19,7 @@ def signup():
 
 @user_api.route('/home')
 def home():
-    return render_template('projects/home.html')
+    return "Hello World"
 
 @user_api.route('/logout')
 def logout():
