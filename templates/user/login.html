@@ -13,7 +13,7 @@
 
 <body>
     <!-- Logo -->
-        <img src="{{url_for('static',filename='logo.png')}}" alt="" srcset="" class="logo_img">
+    <img src="{{url_for('static',filename='logo.png')}}" alt="" srcset="" class="logo_img">
 
     <!-- Signup Title -->
     <div class="signup_header text-center">
@@ -25,12 +25,15 @@
     <!-- Sign Up Form -->
     <div class="signup_form container text-center mt-5">
         <div>
-            <input type="email" name="email" id="" placeholder="Email"><br>
-            <input type="password" name="password" id="" placeholder="Password"><br>
-            <a href="#" class="forget_password">Forget Password?</a> <br>
-            <a href="{{url_for('project_api.project_dashboard')}}" class="text-decoration-none">
-                <button class="btn signup_btn">
-                    Login</button></a>
+            <form onsubmit="return LoginValidateform()">
+                <input type="email" name="email" id="email" placeholder="Email" autocomplete="off"><br>
+                <p class="text-danger" id="emailError"></p>
+                <input type="password" name="password" id="password" placeholder="Password"><br>
+                <p class="text-danger" id="passwordError"></p>
+                <a href="#" class="forget_password">Forget Password?</a> <br>
+                <button class="btn signup_btn" type="submit">
+                    Login</button>
+            </form>
         </div>
         <div class="line_or">
             <h6> OR </h6>
@@ -45,6 +48,7 @@
                 Continue With Facebook</button>
         </div>
     </div>
+    <script src="{{url_for('static',filename='validation.js')}}"> </script>
 </body>
 
 </html>

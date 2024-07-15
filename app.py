@@ -3,8 +3,8 @@ from flask import Flask, redirect, request
 from flask_login import LoginManager
 from common.database import db
 from common.model import User
-from tenants.user_api.users import user_api
-from tenants.project_api.projects import project_api
+from tenants.user_api.api import user_api
+from tenants.project_api.api import project_api
 def create_app():
     app=Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/postgres'

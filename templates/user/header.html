@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animated Sidebar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{url_for('static', filename='home_header.css')}}" />
-
+    <link rel="stylesheet" href="{{url_for('static',filename='header.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.d-downmenu').hide();
@@ -29,11 +28,11 @@
     </script>
 </head>
 
-<body>
+<body class="container">
     <div class="sidebar">
         <!-- Sidebar content -->
         <a href="{{url_for('user_api.home')}}" class="text-decoration-none">
-            <img src="{{url_for('static', filename='trans_logo.png')}}" alt="" srcset="" style="width: 174px;margin: 15px;">
+            <img src="{{url_for('static', filename='trans_logo.png')}}" alt="" srcset="" class="sidebar-logo">
         </a>
 
         <ul>
@@ -57,12 +56,7 @@
     <div class="main_header_content">
         <div class="one_section">
             <div class="other_important_apps" onclick="openModal('modal1')"><i class="fa-solid fa-grip"></i></div>
-            <div>
-                <a href="{{url_for('user_api.home')}}" class="text-decoration-none">
-                    <img src="{{url_for('static', filename='logo.png')}}" alt="" srcset="" style="width: 200px; ">
-                </a>
-            </div>
-            <div><img src="../images/logo.png" alt="" srcset="" style="width: 200px;"></div>
+            <div><img src="{{url_for('static', filename='logo.png')}}" alt="" srcset="" style="width: 200px;"></div>
             <div class="users_projects" onclick="openModal('modal3')">Projects <i class="fa-solid fa-chevron-down"></i>
             </div>
             <div class="create_section" onclick="openModal('modal4')">
@@ -154,8 +148,7 @@
     <div id="modal5" class="modal">
         <div class="modal-content ">
             <div class="text-align-center">
-                <img src="https://online.dda.org.in/idliservice/Images/under-maintenance.gif" alt="" srcset=""
-                    class="maintenance">
+                <img src="https://online.dda.org.in/idliservice/Images/under-maintenance.gif" alt="" srcset="" class="maintenance">
             </div>
         </div>
     </div>

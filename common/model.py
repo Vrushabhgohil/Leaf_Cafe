@@ -8,19 +8,15 @@ class User(UserMixin, db.Model):
     __table_args__ = {'schema': 'myschema'}
     id = Column(String(100), primary_key=True)
     name = Column(String(250), nullable=False)
-    username = Column(String(250), unique=True, nullable=False)
     dp_addr = Column(String(250),nullable=False,default='dummy-profile-pic-male1.jpg')
     email = Column(String(50), unique=True, nullable=False)
+    phone = Column(String(10), unique=True, nullable=False)
     password = Column(String(250), nullable=False)
-    following = Column(Integer, default=0)
-    followers = Column(Integer, default=0)
-    post = Column(Integer, default=0)
     is_admin = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.now, nullable=False)
     updated_at = Column(DateTime, default=None)
     is_active = Column(Boolean, default=True)
 
-    posts = db.relationship('Post', backref='author', lazy=True)
 
 class Project(db.Model):
     __tablename__ = 'Project'

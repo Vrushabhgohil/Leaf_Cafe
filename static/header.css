@@ -1,0 +1,185 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* header */
+.logo_page {
+  margin: 0 15px 0 15px;
+}
+.logo_img {
+  width: 20%;
+}
+.form-button {
+  background-color: dodgerblue;
+  border: none;
+  width: 150px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+
+.main_header_content {
+  height: 5pc;
+  font-size: 15px;
+  border-bottom: 1px solid #888;
+}
+
+.main_header_content,
+.one_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.User_section {
+  color: white;
+  background: rgb(255, 30, 30);
+  width: 35px;
+  font-size: 13px;
+  height: 35px;
+  line-height: 2px;
+  display: flex;
+  text-align: center;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.main_header_content button {
+  line-height: 10px;
+  height: 40px;
+  width: 145px;
+}
+
+.one_section div:nth-child(2) img {
+  width: 200px;
+}
+.upgrade_section button {
+  border: none;
+  width: 150px;
+  border: 1px solid dodgerblue;
+}
+.upgrade_section button:hover {
+  background: linear-gradient(to right, #c169ff, #3700ff);
+  color: white;
+}
+/* model css */
+.one_section div {
+  margin: 0 15px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 70%;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.other_apps {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+.other_app_image {
+  height: 70px;
+  cursor: pointer;
+}
+.maintenance {
+  width: 30%;
+}
+@media (max-width: 720px) {
+  .modal-content {
+    max-width: 90%;
+  }
+  .maintenance {
+    width: 100%;
+  }
+}
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: dodgerblue;
+  transition: all 0.5s ease;
+}
+.sidebar-logo {
+  width: 175px;
+  margin-left: 10%;
+}
+.sidebar.open {
+  left: 0;
+  /* Show sidebar */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar-toggle-btn {
+  display: none !important;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: dodgerblue;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-toggle-btn i {
+  transition: transform 0.3s ease;
+}
+@media (max-width: 1200px) {
+  .sidebar-toggle-btn {
+    display: flex !important;
+  }
+  .main_header_content {
+    display: none;
+  }
+}

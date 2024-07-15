@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Projects</h1>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search Projects">
+      <span class="search-icon">Q</span>
+    </div>
+    <div class="filter-bar">
+      <select id="filter-select">
+        <option value="">Filter by product</option>
+        <option value="software">Software</option>
+        <option value="hardware">Hardware</option>
+      </select>
+      <button id="create-project-btn">Create project</button>
+      <button id="templates-btn">Templates</button>
+    </div>
+  </div>
+  <div class="project-list">
+    <table id="project-table">
+      <thead>
+        <tr>
+          <th>Name ↓</th>
+          <th>Key</th>
+          <th>Type</th>
+          <th>Lead</th>
+          <th>Project URL</th>
+          <th>More actions</th>
+        </tr>
+      </thead>
+      <tbody id="project-table-body">
+        <tr>
+          <td>
+            <span class="project-icon">ΚΑΝ</span>
+            <span>My Kanban Project</span>
+          </td>
+          <td>ΚΑΝ</td>
+          <td>Team-managed software</td>
+          <td>
+            <span class="lead-icon">VG</span>
+            <span>vrushabh gohil</span>
+          </td>
+          <td></td>
+          <td>
+            <span class="more-actions">...</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
