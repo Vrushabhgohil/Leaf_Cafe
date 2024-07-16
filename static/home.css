@@ -1,3 +1,112 @@
-.projects_all{
-    border-bottom:1px solid black ;
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.search-bar input,
+select {
+  width: 100%;
+  border: 1px solid dodgerblue;
+  padding: 5px;
+  border-radius: 10px;
+  height: 35px;
+}
+.search-bar input {
+  width: 21pc;
+}
+.search-icon {
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+}
+
+.filter-bar select {
+  margin-right: 10px;
+}
+
+.filter-bar button {
+  margin-right: 10px;
+}
+
+.project-list {
+  margin-top: 20px;
+}
+
+#project-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#project-table th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#project-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.project-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #f08080;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  margin-right: 10px;
+}
+
+.lead-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  font-size: 9px;
+}
+
+.lead-icon span {
+  color: #fff;
+  font-weight: bold;
+}
+
+.more-actions {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.more-actions span {
+  margin-left: 10px;
 }

@@ -1,59 +1,73 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Projects</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="header">
-    <h1>Projects</h1>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search Projects">
-      <span class="search-icon">Q</span>
-    </div>
-    <div class="filter-bar">
-      <select id="filter-select">
-        <option value="">Filter by product</option>
-        <option value="software">Software</option>
-        <option value="hardware">Hardware</option>
-      </select>
-      <button id="create-project-btn">Create project</button>
-      <button id="templates-btn">Templates</button>
-    </div>
-  </div>
-  <div class="project-list">
-    <table id="project-table">
-      <thead>
-        <tr>
-          <th>Name ↓</th>
-          <th>Key</th>
-          <th>Type</th>
-          <th>Lead</th>
-          <th>Project URL</th>
-          <th>More actions</th>
-        </tr>
-      </thead>
-      <tbody id="project-table-body">
-        <tr>
-          <td>
-            <span class="project-icon">ΚΑΝ</span>
-            <span>My Kanban Project</span>
-          </td>
-          <td>ΚΑΝ</td>
-          <td>Team-managed software</td>
-          <td>
-            <span class="lead-icon">VG</span>
-            <span>vrushabh gohil</span>
-          </td>
-          <td></td>
-          <td>
-            <span class="more-actions">...</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<html lang="en">
 
-  <script src="script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url_for('static',filename='home.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}" />
+
+    <title>Let's Talk</title>
+</head>
+{% extends "user/header_footer.html" %} {% block body%}
+
+<body>
+    <div class="main_home_content container mt-4">
+        <div class="header">
+            <div>
+                <h5>Projects</h5>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search Projects">
+            </div>
+            <div class="filter-bar">
+                <select id="filter-select">
+                    <option value="">Filter by product</option>
+                    <option value="software">Software</option>
+                    <option value="hardware">Hardware</option>
+                </select>
+                <button id="templates-btn" class="btn btn-primary">Templates</button>
+            </div>
+        </div>
+        <div class="project-list">
+            <table id="project-table">
+                <thead>
+                    <tr>
+                        <th>Name ↓</th>
+                        <th>Key</th>
+                        <th>Type</th>
+                        <th>Lead</th>
+                        <th>Project URL</th>
+                        <th>More actions</th>
+                    </tr>
+                </thead>
+                <tbody id="project-table-body">
+                    <tr>
+                        <td>
+                            <span class="project-icon">ΚΑΝ</span>
+                            <span>My Kanban Project</span>
+                        </td>
+                        <td>ΚΑΝ</td>
+                        <td>Team-managed software</td>
+                        <td>
+                            <span class="lead-icon">VG</span>
+                            <span>vrushabh gohil</span>
+                        </td>
+                        <td></td>
+                        <td>
+                            <span class="more-actions">...</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
+{% endblock %}
+
 </html>

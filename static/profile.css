@@ -1,0 +1,20 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+input{
+    border: 1px solid black;
+    height: 45px;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+input:focus{
+    border: 1px solid dodgerblue;
+}
+
+button{
+    width: 170px;
+    height: 40px;
+}

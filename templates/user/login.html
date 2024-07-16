@@ -25,11 +25,14 @@
     <!-- Sign Up Form -->
     <div class="signup_form container text-center mt-5">
         <div>
-            <form onsubmit="return LoginValidateform()">
+            <form onsubmit="return LoginValidateform()" action="/login" method="post">
                 <input type="email" name="email" id="email" placeholder="Email" autocomplete="off"><br>
                 <p class="text-danger" id="emailError"></p>
                 <input type="password" name="password" id="password" placeholder="Password"><br>
                 <p class="text-danger" id="passwordError"></p>
+                {% if msg %}
+                    <p class="text-danger" id="passwordError">{{msg}}</p>
+                {% endif %}
                 <a href="#" class="forget_password">Forget Password?</a> <br>
                 <button class="btn signup_btn" type="submit">
                     Login</button>

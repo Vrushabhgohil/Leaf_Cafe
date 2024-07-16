@@ -83,7 +83,7 @@ body {
 
 .modal-content {
   background-color: #fff;
-  margin: 5% auto;
+  margin: 1% auto;
   padding: 20px;
   border: 1px solid #888;
   max-width: 70%;
@@ -129,11 +129,9 @@ body {
   height: 100%;
   background: dodgerblue;
   transition: all 0.5s ease;
+  z-index: 100; /* Ensure sidebar is above other content */
 }
-.sidebar-logo {
-  width: 175px;
-  margin-left: 10%;
-}
+
 .sidebar.open {
   left: 0;
   /* Show sidebar */
@@ -157,8 +155,8 @@ body {
 .sidebar-toggle-btn {
   display: none !important;
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 20px; /* Adjust positioning as needed */
+  right: 20px;
   background: dodgerblue;
   color: #fff;
   border: none;
@@ -170,16 +168,36 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 101; /* Ensure button is above sidebar */
 }
 
 .sidebar-toggle-btn i {
   transition: transform 0.3s ease;
 }
+
 @media (max-width: 1200px) {
-  .sidebar-toggle-btn {
-    display: flex !important;
+  .sidebar {
+    right: -250px; /* Hide sidebar by default on smaller screens */
   }
+
+  .sidebar.open {
+    right: 0; /* Show sidebar when open class is applied */
+  }
+
+  .sidebar-toggle-btn {
+    display: flex !important; /* Always show toggle button on smaller screens */
+  }
+
   .main_header_content {
-    display: none;
+    display: none; /* Hide main header content on smaller screens */
+  }
+  .sidebar img {
+    width: 75%;
+    margin: 15px;
+  }
+}
+@media (max-width: 450px) {
+  .sidebar.open{
+    width: 100%;
   }
 }

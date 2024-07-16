@@ -29,7 +29,8 @@
     <!-- Sign Up Form -->
     <div class="signup_form container text-center mt-5">
         <div>
-            <form onsubmit="return Validateform()">
+            <form onsubmit="return Validateform()" action="/signup" method="post">
+                <input type="file" name="dp_addr_file" id="dp_addr_file" autocomplete="off">
                 <input type="text" name="name" id="name" placeholder="Username"><br>
                 <p class="text-danger" id="nameError"></p>
                 <input type="email" name="email" id="email" placeholder="Email"><br>
