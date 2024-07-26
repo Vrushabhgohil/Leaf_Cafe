@@ -1,203 +1,112 @@
-body {
-  font-family: "Montserrat", sans-serif;
-}
 
-/* header */
-.logo_page {
-  margin: 0 15px 0 15px;
+/* <================== Logo =================> */
+.logo{
+    width: 35%;
 }
-.logo_img {
-  width: 20%;
-}
-.form-button {
-  background-color: dodgerblue;
-  border: none;
-  width: 150px;
-  height: 40px;
-  padding: 5px;
-  border-radius: 10px;
-  color: white;
-}
-
-.main_header_content {
-  height: 5pc;
-  font-size: 15px;
-  border-bottom: 1px solid #888;
-}
-
-.main_header_content,
-.one_section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.User_section {
-  color: white;
-  background: rgb(255, 30, 30);
-  width: 35px;
-  font-size: 13px;
-  height: 35px;
-  line-height: 2px;
-  display: flex;
-  text-align: center;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-}
-.main_header_content button {
-  line-height: 10px;
-  height: 40px;
-  width: 145px;
-}
-
-.one_section div:nth-child(2) img {
-  width: 200px;
-}
-.upgrade_section button {
-  border: none;
-  width: 150px;
-  border: 1px solid dodgerblue;
-}
-.upgrade_section button:hover {
-  background: linear-gradient(to right, #c169ff, #3700ff);
-  color: white;
-}
-/* model css */
-.one_section div {
-  margin: 0 15px;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 1% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  max-width: 70%;
-  text-align: center;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-.other_apps {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
-}
-.other_app_image {
-  height: 70px;
-  cursor: pointer;
-}
-.maintenance {
-  width: 30%;
-}
-@media (max-width: 720px) {
-  .modal-content {
-    max-width: 90%;
-  }
-  .maintenance {
+.logo img{
     width: 100%;
-  }
-}
-.sidebar {
-  position: fixed;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background: dodgerblue;
-  transition: all 0.5s ease;
-  z-index: 100; /* Ensure sidebar is above other content */
 }
 
-.sidebar.open {
-  left: 0;
-  /* Show sidebar */
+/* <================== Display : Flex =================> */
+.header_section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    padding: 15px;
+}
+.header_section,.part_one,.menus{
+    display: flex;
+    align-items: center;
+}
+.part_one:nth-child(2){
+    text-align: left;
+    margin: 0 35px;
+}
+.menus a,.menus button{
+    margin: 5px 15px;
+}
+.menus a{
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+}
+.menus button{
+    width: 150px;
+    height: 39px;
+    border-radius: 10px;
+    border: 1px solid #1e3932;
+    background-color: transparent;
+    color: var(--theam-color);
+}
+.menus button:hover{
+    background-color: var(--theam-color);
+    color: var(--font-color);
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 20px;
+/* <================== Sidebar Content =================> */
+
+.sidebar_button button,.sidebar_close_button button{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #1e3932;
+    border-radius: 50%;
+    color: #1e3932;
+    background: transparent;
+    text-align: center;
+}
+.sidebar_button button{
+    display: none;
+}
+.sidebar_close_button {
+    margin-top: 50px;
+}
+.sidebar_content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    overflow-y: hidden;
+    background-color: var(--font-color);
+    box-shadow: var(--shadow);
+    padding: 15px;
+    z-index: 999;
 }
 
-.sidebar ul li {
-  padding: 10px 0;
+.sidebar_logo img{
+    width: 80%;
 }
-
-.sidebar ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
+.sidebar_menu a{
+    color: var(--theam-color);
+    line-height: 50px;
 }
-
-.sidebar-toggle-btn {
-  display: none !important;
-  position: fixed;
-  bottom: 20px; /* Adjust positioning as needed */
-  right: 20px;
-  background: dodgerblue;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 101; /* Ensure button is above sidebar */
+@media (max-width:1000px){
+    .menus a, .menus button {
+        margin: 5px 9px;
+    }
 }
-
-.sidebar-toggle-btn i {
-  transition: transform 0.3s ease;
+@media (max-width:950px) {
+    .logo{
+        width: 50%;
+    }
+    .menus a,.first_btn {
+        display: none;
+    }
+    
+    .sidebar_button button{
+        display: block;
+    }
+    .sidebar_content{
+        width: 75%;
+    }
 }
-
-@media (max-width: 1200px) {
-  .sidebar {
-    right: -250px; /* Hide sidebar by default on smaller screens */
-  }
-
-  .sidebar.open {
-    right: 0; /* Show sidebar when open class is applied */
-  }
-
-  .sidebar-toggle-btn {
-    display: flex !important; /* Always show toggle button on smaller screens */
-  }
-
-  .main_header_content {
-    display: none; /* Hide main header content on smaller screens */
-  }
-  .sidebar img {
-    width: 75%;
-    margin: 15px;
-  }
-}
-@media (max-width: 450px) {
-  .sidebar.open{
-    width: 100%;
-  }
+@media (max-width:550px) {
+    .logo{
+        width: 100%;
+    }
+    .sidebar_content{
+        width: 90%;
+    }
 }

@@ -1,0 +1,77 @@
+
+/* <================= Logo =================> */
+.logo img{
+    width: 20pc;
+    margin: 2% 0;
+}
+
+/* <================= Form Section =================> */
+span{
+    background: -webkit-linear-gradient(left, #147636, #93cd24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.other_links a{
+    color: var(--theam-color);
+}
+.form_section{
+    margin:40px 20%;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 2%;
+    background-color: transparent;
+    text-align: left !important;
+}
+.form_section input{
+    border: 1px solid #1e3932;
+    padding: 9px;
+    width: 75%;
+    border-radius: 10px;
+
+}
+.form_submit{
+    width: 20%;
+    padding: 15px;
+    background: var(--theam-color);
+    color: white;
+    border-radius: 10px;
+    margin: 19px 0;
+    border: none;
+}
+
+.form_submit:hover{
+    border: 1px solid #1e3932;
+    background-color: transparent;
+    color: var(--theam-color);
+}
+input[type='checkbox']{
+    width: 17px;
+    height: 17px;   
+}
+@media (max-width:1150px) {
+    .logo img{
+        margin-bottom: 50px;
+    }
+    .login_section h2{
+        margin: 0 15px;
+    }
+    .form_section{
+        margin:40px 5%;
+        padding: 30px;
+    }
+    .form_section input{
+        width: 90%;
+    }
+    input[type='checkbox']{
+        width: 17px;
+        height: 17px;   
+    }
+    .form_section button{
+        width: 150px;
+    }
+}
+@media (max-width:650px) {
+    .logo img{
+        width:15pc;
+    }
+}

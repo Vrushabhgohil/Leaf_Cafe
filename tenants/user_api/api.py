@@ -16,7 +16,7 @@ def login():
     if request.method == 'POST':
         Login_user()
         if Login_user():
-            return redirect(url_for('user_api.profile'))
+            return redirect(url_for('user_api.home'))
         else:
             msg = "invalid email or password!!"    
             return render_template('user/login.html',msg=msg)
@@ -29,10 +29,6 @@ def signup():
         Signup_user()
         return redirect(url_for('user_api.login'))
     return render_template('user/signup.html')
-
-@user_api.route('/home')
-def home():
-    return render_template('user/home.html')
 
 @user_api.route('/profile')
 def profile():

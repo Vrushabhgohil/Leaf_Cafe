@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url_for('static',filename='header.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}">
+
+  <title>Leaf Cafe</title>
+</head>
+
+<body class="container">
+  <div class="header_section">
+    <div class="part_one">
+        <div class="logo">
+            <img src="{{url_for('static',filename='logo.png')}}" alt="" srcset="">
+        </div>
+        <div class="menus" style="margin-left: 25px;">
+            <div>
+                <a href="/menu">Menu</a>
+            </div>
+            <div>
+                <a href="#">Rewards</a>
+            </div>
+            <div>
+                <a href="/contect_us">Contect Us</a>
+            </div>
+        </div>
+    </div>
+    <div class="part_two menus">
+        <div>
+            <a href="#"><button class="first_btn"> <i class="fa-solid fa-location-dot"></i> Find Store</button></a>
+        </div>
+        <div>
+            <a href="#">V</a>
+        </div>
+        
+        <div class="sidebar_button"><button class="sec_btn"><i class="fa-solid fa-bars"></i></button></div>
+    </div>
+
+</div>
+
+<div class="sidebar_content">
+    <div class="sidebar_logo">
+        <img src="{{url_for('static',filename='logo.png')}}" alt="" srcset="">
+        <hr>
+    </div>
+    <div class="sidebar_menu mt-4">
+        <div>
+            <a href="/menu">Menu</a>
+        </div>
+        <div>
+            <a href="#">Rewards</a>
+        </div>
+        <div>
+            <a href="/conetct_us">Contect us</a>
+        </div>
+        <div>
+            <a href="/find_store">Find Store</a>
+        </div>
+        <div>
+            <a href="/profile">Profile</a>
+        </div>
+        <div>
+            <a href="#">Settings</a>
+        </div>
+    </div>
+    <div class="sidebar_close_button"><button class="sec_btn"><i class="fa-solid fa-x"></i></button></div>
+
+</div>
+  {% block body %}{% endblock %}
+
+  <script>
+    $(document).ready(function(){
+        $(".sidebar_content").hide();
+        $(".sidebar_button").click(function(){
+            $(".sidebar_content").fadeIn();
+        });
+        $(".sidebar_close_button").click(function(){
+            $(".sidebar_content").fadeOut();
+        });
+    });
+</script>
+</body>
+
+</html>

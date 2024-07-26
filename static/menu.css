@@ -1,0 +1,53 @@
+
+/* menu header */
+.menu_header {
+    background-color: rgb(242, 242, 242);
+    padding: 10px;
+  }
+  .menu_header div {
+    margin: 0 15px;
+  }
+  .menu_header a {
+    color: black;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  
+  /* product  */
+  
+  
+  .product {
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   margin: 15px 15%;
+   grid-gap: 55px 10%;
+   text-align: center;
+   margin-top: 25px;
+  }
+  
+  
+  .product_data img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    transition: border-radius 1s ease ;
+  }
+  .product_data:hover img{
+      border-radius: 0; 
+      transition-delay: 0s;
+  }
+  @media (max-width: 950px) {
+      .product {
+          grid-template-columns: repeat(3,1fr);
+          margin: 15px 8%;
+        }
+        .drinks_menu{
+          margin-top: 30px;
+        }
+  }
+  @media (max-width: 650px) {
+    .product {
+      grid-template-columns: repeat(2,1fr);
+    }
+  }

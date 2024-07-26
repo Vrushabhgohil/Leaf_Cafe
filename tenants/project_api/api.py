@@ -9,27 +9,18 @@ engine = create_engine(
 Session = sessionmaker(bind=engine)
 session = Session() 
 
-@project_api.route('/create_new_project')
-def create_new_project():
-    return "Create New Project"
+@project_api.route('/home')
+def home():
+    return render_template('other/home.html')
 
-@project_api.route('/create_new_task')
-def create_new_task():
-    return "Create New Task"
+@project_api.route('/menu')
+def menu():
+    return render_template('other/menu.html')
 
-@project_api.route('/edit_task')
-def edit_task():
-    return "Edit Task"
+@project_api.route('/find_store')
+def find_store():
+    return render_template('other/find_store.html')
 
-@project_api.route('/delete_task')
-def delete_task():
-    return "Delete Task"
-
-@project_api.route('/project_dashboard')
-def project_dashboard():
-    return "Create New Task"
-
-
-@project_api.route('/try')
-def settings():
-    return render_template('user/home.html')
+@project_api.route('/contect_us')
+def contect_us():
+    return render_template('other/contectus.html')
