@@ -14,9 +14,9 @@ session = Session()
 @user_api.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'POST':
-        Login_user()
-        if Login_user():
-            return redirect(url_for('user_api.home'))
+        user = Login_user()
+        if user:
+            return redirect(url_for('project_api.home', tenant=user.id))
         else:
             msg = "invalid email or password!!"    
             return render_template('user/login.html',msg=msg)
@@ -30,11 +30,13 @@ def signup():
         return redirect(url_for('user_api.login'))
     return render_template('user/signup.html')
 
-@user_api.route('/profile')
-def profile():
-    one_user = User.query.filter_by(name='sam').first()
-    return render_template('user/profile.html',one_user=one_user)
+@user_api.route('/profile/<string:tenant>')
+def profile(tenant):
+    user = User_profile(tenant)
+    if user:
+        return render_template('user/profile.html',tenant=tenant,user=user)
+    return "No Data available"
 
-@user_api.route('/logout')
-def logout():
+@user_api.route('/logout/<string:tenant>')
+def logout(tenant):
     return "This is logout api"

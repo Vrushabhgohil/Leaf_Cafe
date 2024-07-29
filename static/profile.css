@@ -8,5 +8,8 @@
     text-align: center;
 }
 .image_dp img{
-    width: 9pc;
+    width: 9.5pc;
+    height: 9.5pc;
+    object-fit: cover;
+    border-radius: 50%;
 }

@@ -1,3 +1,4 @@
+from flask_login import current_user
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from flask import Blueprint, render_template
@@ -9,18 +10,18 @@ engine = create_engine(
 Session = sessionmaker(bind=engine)
 session = Session() 
 
-@project_api.route('/home')
-def home():
-    return render_template('other/home.html')
+@project_api.route('/home/<string:tenant>')
+def home(tenant):   
+    return render_template('other/home.html',tenant=tenant)
 
-@project_api.route('/menu')
-def menu():
-    return render_template('other/menu.html')
+@project_api.route('/menu/<string:tenant>')
+def menu(tenant):
+    return render_template('other/menu.html',tenant=tenant)
 
-@project_api.route('/find_store')
-def find_store():
-    return render_template('other/find_store.html')
+@project_api.route('/find_store/<string:tenant>')
+def find_store(tenant):
+    return render_template('other/find_store.html',tenant=tenant)
 
-@project_api.route('/contect_us')
-def contect_us():
-    return render_template('other/contectus.html')
+@project_api.route('/contect_us/<string:tenant>')
+def contect_us(tenant):
+    return render_template('other/contectus.html',tenant=tenant)

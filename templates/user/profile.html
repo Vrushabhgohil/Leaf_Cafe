@@ -22,28 +22,30 @@
             <h2>Your Account With <span>Leaf Cafe</span></h2>
         </div>
         <div class="form_section text-left">
-            <div class="image_dp">
-                <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-3/177800/129-512.png"
+            <a href="{{url_for('project_api.home',tenant=tenant)}}" style="color: black;"><i class="fa-solid fa-left-long"></i> Back</a>
+
+            <div class="image_dp mt-3">
+                <img src="{{ url_for('static', filename='users_dp/' + user.dp_addr) }}"
                     alt="" srcset="">
             </div>
             <form action="">
                 <h4 style="font-size: 20px;color: gray;" class="mt-5">PERSONAL INFORMATION</h4>
                 <div class="input-field mt-4">
                     <label>* Username</label> <br>
-                    <input type="text" name="" id="" value="* Username">
+                    <input type="text" name="" id="" value="{{user.name}}">
                 </div>
                 <div class="input-field mt-4">
                     <label>phone number</label> <br>
-                    <input type="tel" name="" id="" value="* Phone Number">
+                    <input type="tel" name="" id="" value="{{user.phone}}">
                 </div>
                 <h4 style="font-size: 20px;color: gray;" class="mt-5">Account Security</h4>
                 <div class="input-field mt-4">
                     <label>* email</label> <br>
-                    <input type="email" name="" id="" value="* Email Address">
+                    <input type="email" name="" id="" value="{{user.email}}">
                 </div>
                 <div class="input-field mt-4">
                     <label>Password</label> <br>
-                    <input type="password" name="" id="" value="* Password">
+                    <input type="password" name="" id="" value="{{user.password}}">
                 </div>
 
                 <button class="form_submit">Save Changes</button>
