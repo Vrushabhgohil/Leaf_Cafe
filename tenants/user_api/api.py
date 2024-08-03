@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from flask import Blueprint, redirect, render_template, request, url_for
@@ -5,7 +6,9 @@ from tenants.users import *
 
 
 user_api  = Blueprint('user_api',__name__,template_folder='templates',static_folder='static')
-engine = create_engine(os.getenv('DATABASE_URI'))
+load_dotenv()
+database_uri = os.getenv('DATABASE_URI')
+engine = create_engine(database_uri)
 Session = sessionmaker(bind=engine)
 session = Session() 
 

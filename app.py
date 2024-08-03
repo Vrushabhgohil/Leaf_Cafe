@@ -5,11 +5,16 @@ from common.database import db
 from common.model import Users
 from tenants.user_api.api import user_api
 from tenants.project_api.api import project_api
+from dotenv import load_dotenv
+
 def create_app():
     app=Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
+    load_dotenv()
+    database_uri = os.getenv('DATABASE_URI')
+    secret_key = os.getenv('SECRET_KEY')
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+    app.config['SECRET_KEY'] = secret_key
    
     db.init_app(app)
     with app.app_context():
