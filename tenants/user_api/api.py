@@ -1,4 +1,3 @@
-from flask_login import current_user, login_required
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from flask import Blueprint, redirect, render_template, request, url_for
@@ -6,8 +5,7 @@ from tenants.users import *
 
 
 user_api  = Blueprint('user_api',__name__,template_folder='templates',static_folder='static')
-engine = create_engine(
-    'postgresql://postgres:postgres@localhost:5432/postgres')
+engine = create_engine(os.getenv('DATABASE_URI'))
 Session = sessionmaker(bind=engine)
 session = Session() 
 

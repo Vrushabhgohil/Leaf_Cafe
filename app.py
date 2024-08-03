@@ -7,9 +7,9 @@ from tenants.user_api.api import user_api
 from tenants.project_api.api import project_api
 def create_app():
     app=Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/postgres'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = 'vrushabh@2611'
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
    
     db.init_app(app)
     with app.app_context():
