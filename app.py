@@ -49,7 +49,7 @@ def before_request():
 
 @app.route('/')
 def home():
-    return redirect('login')
+    return "Hello World"
    
 if __name__ == '__main__':  
     port = int(os.environ.get("PORT", 5000))
