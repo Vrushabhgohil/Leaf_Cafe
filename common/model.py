@@ -15,6 +15,7 @@ class Users(UserMixin, db.Model):
     is_admin = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.now, nullable=False)
     updated_at = Column(DateTime, default=None)
+    user_status = Column(String(20),default="In Use")
     is_active = Column(Boolean, default=True)
 
 
@@ -28,7 +29,9 @@ class Product(db.Model):
     qty = Column(Integer,nullable=False)
     desc = Column(String(250),nullable=False)
     added_at = Column(DateTime, default=datetime.now, nullable=False)
+    ptype = Column(String(20),nullable=False)
     status = Column(String(35))
+
 
 class Purchase(db.Model):
     __tablename__ = 'Purchase'
@@ -40,3 +43,9 @@ class Purchase(db.Model):
     total_price = Column(Integer,nullable=False)
     order_at = Column(DateTime, default=datetime.now, nullable=False)
     
+class Special(db.Model):
+    __tablename__ = 'Special'
+    __table_args__ = {'schema': 'myschema'}
+    id = Column(String(100),primary_key=True)
+    image_addr = Column(String(250),nullable=False)
+    added_at = Column(DateTime, default=datetime.now, nullable=False)

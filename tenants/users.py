@@ -19,9 +19,8 @@ def Signup_user():
     if dp_addr_file:
         filename = secure_filename(dp_addr_file.filename)
         dp_addr_file.save(os.path.join('E:/vrushabh/College/Project/back_end/static/users_dp', filename))
-
-
-    add_user = Users(id=id,name=name,dp_addr=filename,email=email,phone=phone,password=password)
+            
+    add_user = Users(id=id,name=name,dp_addr=filename,email=email,phone=phone,password=password,is_admin = False)
     db.session.add(add_user)
     db.session.commit()
 

@@ -5,6 +5,7 @@ from common.database import db
 from common.model import Users
 from tenants.user_api.api import user_api
 from tenants.project_api.api import project_api
+from tenants.admin_api.api import admin_api
 from dotenv import load_dotenv
 
 def create_app():
@@ -22,6 +23,7 @@ def create_app():
     
     app.register_blueprint(user_api)
     app.register_blueprint(project_api)
+    app.register_blueprint(admin_api)
     return app
 
 
@@ -49,8 +51,8 @@ def before_request():
 
 @app.route('/')
 def home():
-    return "Hello World"
+    return redirect('/login')
    
 if __name__ == '__main__':  
     port = int(os.environ.get("PORT", 5000))
-    app.run(debug=False, host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)

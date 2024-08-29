@@ -4,3 +4,4 @@ __pycache__
 data
 users_image
 .env
+.\static\users_dp

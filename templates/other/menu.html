@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="{{url_for('static',filename='menu.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='menu.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}">
 </head>
 {% extends 'other/header_footer.html'%}{% block body %}
+
 <body>
     <div class="menu_section container mt-5">
         <h3>Menus</h3>
@@ -30,90 +31,65 @@
 
         </div>
 
-        <div class="drinks mt-5" id="drinks">
-            <h1>Drinks</h1>
-            <div class="drinks_menu">
-                <div class="product">
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='1st.avif')}}" alt="" srcset=""><br>
-                        Tropical Citrus Iced Energy
+        <div class="product-section mt-5">
+            <!-- Drinks Section -->
+            <div class="drinks" id="drinks">
+                <h1>Drinks</h1>
+                <div class="drinks_menu">
+                    <div class="product">
+                        {% for i in product %}
+                        {% if i.ptype == "Drinks" %}
+                        <div class="product_data">
+                            <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
+                                alt="{{ i.name }} Image" srcset="">
+                            <br>
+                            {{ i.name }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='2nd.avif')}}" alt="" srcset=""><br>
-                        Apple Spice
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='3rd.avif')}}" alt="" srcset=""><br>
-                        Coffee Frappuccino
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='4th.avif')}}" alt="" srcset=""><br>
-                        Cold Coffee
-                    </div>
-                    <div class="product_data">
+                </div>
+            </div>
 
-                        <img src="{{url_for('static',filename='5th.avif')}}" alt="" srcset=""> <br>
-                        Hot Coffee
+            <!-- Snacks Section -->
+            <div class="snacks" id="snacks">
+                <h1>Snacks</h1>
+                <div class="snacks_menu">
+                    <div class="product">
+                        {% for i in product %}
+                        {% if i.ptype == "Snacks" %}
+                        <div class="product_data">
+                            <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
+                                alt="{{ i.name }} Image" srcset="">
+                            <br>
+                            {{ i.name }}
+                        </div>
                     </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
 
+            <!-- Sweets Section -->
+            <div class="sweets" id="sweets">
+                <h1>Sweets</h1>
+                <div class="sweets_menu">
+                    <div class="product">
+                        {% for i in product %}
+                        {% if i.ptype == "Sweets" %}
+                        <div class="product_data">
+                            <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
+                                alt="{{ i.name }} Image" srcset="">
+                            <br>
+                            {{ i.name }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="Snacks mt-5" id="Snacks">
-            <h1>Snacks</h1>
-            <div class="drinks_menu">
-                <div class="product">
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='6th.avif')}}" alt="" srcset=""> <br>
-                        Crispy Grilled Cheese
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='7th.avif')}}" alt="" srcset=""> <br>
-                        Cheese Trio Protein Box
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='8th.avif')}}" alt="" srcset=""> <br>
-                        Tomato & Mozzarella on Focaccia
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='9th.avif')}}" alt="" srcset=""> <br>
-                        Eggs & Gouda Protein Box
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-
-        <div class="Sweets mt-5" id="Sweets">
-            <h1>Sweets</h1>
-            <div class="drinks_menu">
-                <div class="product">
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='10th.avif')}}" alt="" srcset=""> <br>
-                        Chocolate Brownie
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='11th.avif')}}" alt="" srcset=""> <br>
-                        Chocolate Chip Cookie
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='12th.avif')}}" alt="" srcset=""> <br>
-                        Cold Milk
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='13th.avif')}}" alt="" srcset=""> <br>
-                        Sparkling Water
-                    </div>
-                    <div class="product_data">
-                        <img src="{{url_for('static',filename='14th.avif')}}" alt="" srcset=""> <br>
-                        Vanilla Bean Protein Shake
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
     </div>
     </div>
@@ -130,4 +106,5 @@
     </script>
 </body>
 {% endblock %}
+
 </html>

@@ -16,7 +16,10 @@ session = Session()
 def login():
     if request.method == 'POST':
         user = Login_user()
-        if user:
+        breakpoint
+        if user and user.is_admin == True:
+            return redirect(url_for('admin_api.home', tenant=user.id))
+        elif user and user.is_admin == False:
             return redirect(url_for('project_api.home', tenant=user.id))
         else:
             msg = "invalid email or password!!"    
@@ -41,3 +44,6 @@ def profile(tenant):
 @user_api.route('/logout/<string:tenant>')
 def logout(tenant):
     return "This is logout api"
+
+
+    

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='form.css')}}">
+    <title>Leaf Cafe</title>
+</head>
+{% extends 'admin/header.html'%}{% block body %}
+
+<body>
+    <!-- Popular Product -->
+    <div class="main_login_section container">
+        <div class="login_section text-center">
+            <span>Hello, Admin</span> <br>
+            <h2>Welcome To <span>Leaf Cafe</span></h2>
+            <div class="form_section text-left">
+                <p>* Indicates Required Field</p>
+                <form action="{{ url_for('admin_api.add_product', tenant=tenant) }}" method="post" id="ProductForm" enctype="multipart/form-data">
+                    <h4 style="font-size: 20px;color: gray;" class="mt-5">PRODCUT INFORMATION</h4>
+                    <div class="input-field mt-4">
+                        <label for="">Product Image </label>
+                        <br>
+                        <input type="file" name="img_addr_file" id="img_addr_file" autocomplete="off">
+                    </div>
+                    <div class="input-field mt-4">
+                        <input type="text" name="name" id="name" placeholder="* Name">
+                    </div>
+                    <div class="input-field mt-4">
+                        <input type="text" name="desc" id="desc" placeholder="* Prodcut Description">
+                    </div>
+                   
+                    <h4 style="font-size: 20px;color: gray;" class="mt-5">More Details</h4>
+                    <div class="input-field mt-4">
+                        <input type="number" name="price" id="price" placeholder="* Price">
+                    </div>
+                    <div class="input-field mt-4">
+                        <input type="number" name="qty" id="qty" placeholder="* Quantity Available">
+                    </div>
+                    <div class="input-field mt-4">
+                        <select name="ptype" id="ptype">
+                            <option disabled selected>Select Product Type</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="Snacks">Snacks</option>
+                            <option value="Sweets">Sweets</option>
+                        </select>
+                    </div>
+                    <div class="other_links mt-5">
+                        <h4 style="font-size: 16px;color: gray;">TERMS OF ADD</h4>
+                        <p style="margin-right: 15%;word-spacing: 2px;"><input type="checkbox" name="" id="">
+                            * I am as a admin agree to add new product in the Leaf Cafe® </p>
+                    </div>
+                   
+                    <button class="form_submit" type="submit">Add Product</button>
+                </form>
+
+                <div class="error_message container alert alert-danger">
+                    <div id="message_content">Error</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function displayError(event, message) {
+            event.preventDefault();
+            const error_message = document.querySelector(".error_message");
+            const message_content = document.getElementById("message_content");
+            error_message.style.display = 'block';
+            message_content.textContent = message;
+            setTimeout(() => {
+                error_message.style.display = 'none';
+            }, 3000);
+        }
+        document.getElementById('ProductForm')?.addEventListener('submit', function (event) {
+            const uname = document.getElementById("name")?.value;
+            const uprice = document.getElementById("price")?.value;
+            const uqty = document.getElementById("qty")?.value;
+            const udesc = document.getElementById("desc")?.value;
+            
+            if (!uname || !uprice || !uqty || !udesc ) {
+                displayError(event, "Fill All The Data");
+                return;
+            }
+            if (uprice < 0) {
+                displayError(event, "Enter Valid Price Of Product");
+                return;
+            }
+            if (uqty < 0) {
+                displayError(event, "Enter Valid Quantity Of Product");
+                return;
+            }
+           
+        });
+
+    </script>
+</body>
+{% endblock %}
+
+</html>

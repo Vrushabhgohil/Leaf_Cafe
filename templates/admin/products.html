@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='admin/list.css')}}">
+    <title>Leaf Cafe</title>
+</head>
+{% extends 'admin/header.html'%}{% block body %}
+
+<body>
+    <div class="main_product_section mt-5">
+        <div class="title_section text-center">
+            <span>Hello, Admin</span> <br>
+            <h2>Welcome To <span>Leaf Cafe</span></h2>
+        </div>
+
+        <div class="list_section mt-5">
+            {% for i in product %}
+            <div class="product mt-4 text-center">
+                <div class="image">
+                    <img src="{{url_for('static',filename='users_dp/' + i.image_addr) }}" alt="" srcset="">
+                </div>
+                <div class="details">
+                    <p><b>{{i.name}}</b><br> Price :- Rs.{{i.price}} <br>Qty:- {{i.qty}}</p>
+                </div>
+                <div class="btn_section">
+                    <form action="{{url_for('admin_api.update_product', id= i.id,tenant=tenant)}}">
+                        <button class="btn btn-success">Update</button>
+                    </form>
+
+                    <form action="{{url_for('admin_api.del_product', id= i.id,tenant=tenant)}}">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+</html>

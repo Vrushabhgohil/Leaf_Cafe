@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='form.css')}}">
+    <title>Leaf Cafe</title>
+</head>
+{% extends 'admin/header.html'%}{% block body %}
+
+<body>
+    <!-- Popular Product -->
+    <div class="main_login_section container">
+        <div class="login_section text-center">
+            <span>Hello, Admin</span> <br>
+            <h2>Welcome To <span>Leaf Cafe</span></h2>
+            <div class="form_section text-left">
+                <p>* Indicates Required Field</p>
+                <form action="{{ url_for('admin_api.add_offers', tenant=tenant) }}" method="post" id="ProductForm" enctype="multipart/form-data">
+                    <h4 style="font-size: 20px;color: gray;" class="mt-5">Special Thing Add</h4>
+                    <div class="input-field mt-4">
+                        <label for="">Banner For That</label>
+                        <br>
+                        <input type="file" name="banner_img" id="banner_img" autocomplete="off">
+                    </div>
+                    <div class="other_links mt-5">
+                        <h4 style="font-size: 16px;color: gray;">TERMS OF ADD</h4>
+                        <p style="margin-right: 15%;word-spacing: 2px;"><input type="checkbox" name="" id="">
+                            * I am as a admin agree to add Special Thing For user in the Leaf Cafe® </p>
+                    </div>
+                   
+                    <button class="form_submit" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+</body>
+{% endblock %}
+
+</html>

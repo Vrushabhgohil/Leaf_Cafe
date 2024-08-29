@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='admin/dashborad.css')}}">
+    <title>Leaf Cafe</title>
+</head>
+{% extends 'admin/header.html'%}{% block body %}
+
+<body>
+    <!-- Popular Product -->
+    <div class="main_section">
+        <div class="basic_info">
+            <div>
+                <h1>25+ </h1>
+                <h3> Products </h3>
+            </div>
+            <div>
+                <h1>51+ </h1>
+                <h3> Sales </h3>
+
+            </div>
+            <div>
+                <h1>150+ </h1>
+                <h3> Users </h3>
+            </div>
+        </div>
+        <div class="trending_products mt-5">
+            <h4 style="font-size: 20px;color: gray;" class="mt-5">Latest Offers</h4>
+            <table border="1" align="center">
+                <tr>
+                    <td>Id</td>
+                    <td>Offers</td>
+                    <td>Added At</td>
+                </tr>
+                {% for i in offer %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td><img src="{{url_for('static',filename='users_dp/' + i.image_addr) }}" alt="" srcset="" style="width: 50px;height: 50px;"></td>
+                        <td>{{i.added_at}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="trending_products mt-5">
+            <h4 style="font-size: 20px;color: gray;" class="mt-5">New Users</h4>
+            <table border="1" align="center">
+                <tr>
+                    <td>Dp</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Added At</td>
+                </tr>
+                {% for i in user %}
+                    <tr>
+                        <td><img src="{{url_for('static',filename='users_dp/' + i.dp_addr) }}" alt="" srcset="" style="width: 50px;height: 50px;"></td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.created_at}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="trending_products mt-5 mb-5">
+            <h4 style="font-size: 20px;color: gray;" class="mt-5">New Lunch Products</h4>
+            <table border="1" align="center">
+                <tr>
+                    <td>Image</td>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Qty.</td>
+                    <td>Launch Date</td>
+                </tr>
+                {% for i in product %}
+                    <tr>
+                        <td><img src="{{url_for('static',filename='users_dp/' + i.image_addr) }}" alt="" srcset="" style="width: 50px;height: 50px;"></td>
+                        <td>({{i.ptype}})  {{i.name}}</td>
+                        <td>{{i.price}}</td>
+                        <td>{{i.qty}}</td>
+                        <td>{{i.added_at}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>  
+    </div>
+</body>
+{% endblock %}
+
+</html>

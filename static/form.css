@@ -22,7 +22,7 @@ span{
     background-color: transparent;
     text-align: left !important;
 }
-.form_section input{
+.form_section input,.form_section select{
     border: 1px solid #1e3932;
     padding: 9px;
     width: 75%;

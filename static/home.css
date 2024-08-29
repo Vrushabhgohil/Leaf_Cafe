@@ -1,3 +1,63 @@
+/* Slider */
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  transition: transform 2s ease;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background: #f1f1f1;
+  border-right: 1px solid #ddd;
+}
+.slide img {
+  width: 100%;
+  height: 80vh;
+}
+.arrow {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  transform: translateY(-50%);
+}
+.arrow:hover {
+  background: black;
+  color: white;
+  border: none;
+}
+#prev {
+  left: 0.5pc;
+}
+
+#next {
+  left: 5pc;
+}
 
 /* product pick */
 .product,.details_store{
@@ -16,6 +76,8 @@
     object-fit: cover;
     border-radius: 50%;
 }
+
+
 /* <=================== Details About Cafe===================> */
 
 .details_store {

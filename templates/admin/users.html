@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='admin/list.css')}}">
+    <title>Leaf Cafe</title>
+</head>
+{% extends 'admin/header.html'%}{% block body %}
+
+<body>
+    <div class="main_product_section mt-5">
+        <div class="title_section text-center">
+            <span>Hello, Admin</span> <br>
+            <h2>Welcome To <span>Leaf Cafe</span></h2>
+        </div>
+
+        <div class="list_section mt-5">
+            {% for i in user %}
+            <div class="product mt-4 text-center">
+                <div class="image">
+                    <img src="{{url_for('static',filename='users_dp/' + i.dp_addr) }}" alt="" srcset="">
+                </div>
+                
+                <div class="details">
+                    <p><b> {{i.name}} </b><br> {{i.email}} </p>
+                </div>
+                <div class="btn_section">
+                    <button class="btn btn-success">Details</button>
+                    <button class="btn btn-danger">Block</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+</html>
