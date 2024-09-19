@@ -1,0 +1,104 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.products_section {
+  background-color: #1f3933;
+  color: white;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.details_section,
+.cold-brew-section {
+  display: flex;
+}
+
+.cold-brew-section {
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+.cold-brew-image {
+  width: 45%;
+}
+.cold-brew-image img {
+  max-width: 65%;
+  height: auto;
+}
+
+.cold-brew-details {
+  padding-left: 30px;
+}
+
+.cold-brew-details h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.cold-brew-details p {
+  font-size: 1.25rem;
+  color: lightgray;
+}
+
+.details_section {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.box,
+.box1 {
+  position: relative;
+}
+.box p,
+.box1 p {
+  width: 30pc;
+  padding: 15px;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  border-radius: 15px;
+  border: 1px solid #999;
+}
+.box label,
+.box1 label {
+  position: absolute;
+  left: 12px;
+  text-align: center;
+  background-color: #fff;
+  padding: 0 4px;
+  color: #999;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.box label {
+  top: 12%;
+}
+.box1 label {
+  top: 25%;
+}
+.box1 p {
+  text-align: right;
+}
+.counter-btn {
+  height: 30px;
+  width: 30px;
+  line-height: 12px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid #4caf50;
+  border-radius: 50%;
+  background: transparent;
+  color: #4caf50;
+}
+.counter-btn:hover {
+  background-color: #45a049;
+  color: white;
+}
+.counter-value {
+  font-size: 20px;
+  margin: 0 10px;
+}

@@ -1,112 +1,177 @@
-
 /* <================== Logo =================> */
-.logo{
-    width: 35%;
+.logo {
+  width: 35%;
 }
-.logo img{
-    width: 100%;
+.logo img {
+  width: 100%;
 }
 
 /* <================== Display : Flex =================> */
-.header_section{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid gray;
-    padding: 15px;
+.header_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  padding: 15px;
 }
-.header_section,.part_one,.menus{
-    display: flex;
-    align-items: center;
+.header_section,
+.part_one,
+.menus {
+  display: flex;
+  align-items: center;
 }
-.part_one:nth-child(2){
-    text-align: left;
-    margin: 0 35px;
+.part_one:nth-child(2) {
+  text-align: left;
+  margin: 0 35px;
 }
-.menus a,.menus button{
-    margin: 5px 15px;
+.menus a,
+.menus button {
+  margin: 5px 15px;
 }
-.menus a{
-    text-decoration: none;
-    color: black;
-    font-weight: 400;
+.menus a {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
 }
-.menus button{
-    width: 150px;
-    height: 39px;
-    border-radius: 10px;
-    border: 1px solid #1e3932;
-    background-color: transparent;
-    color: var(--theam-color);
+.menus button {
+  width: 150px;
+  height: 39px;
+  border-radius: 10px;
+  border: 1px solid #1e3932;
+  background-color: transparent;
+  color: var(--theam-color);
 }
-.menus button:hover{
-    background-color: var(--theam-color);
-    color: var(--font-color);
+.menus button:hover {
+  background-color: var(--theam-color);
+  color: var(--font-color);
 }
 
 /* <================== Sidebar Content =================> */
 
-.sidebar_button button,.sidebar_close_button button{
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border: 1px solid #1e3932;
-    border-radius: 50%;
-    color: #1e3932;
-    background: transparent;
-    text-align: center;
+.sidebar_button button,
+.sidebar_close_button button {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #1e3932;
+  border-radius: 50%;
+  color: #1e3932;
+  background: transparent;
+  text-align: center;
 }
-.sidebar_button button{
-    display: none;
+.sidebar_button button {
+  display: none;
 }
 .sidebar_close_button {
-    margin-top: 50px;
+  margin-top: 50px;
 }
-.sidebar_content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 25%;
-    height: 100%;
-    overflow-y: hidden;
-    background-color: var(--font-color);
-    box-shadow: var(--shadow);
-    padding: 15px;
-    z-index: 999;
+.sidebar_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  overflow-y: hidden;
+  background-color: var(--font-color);
+  box-shadow: var(--shadow);
+  padding: 15px;
+  z-index: 999;
 }
 
-.sidebar_logo img{
-    width: 80%;
+.sidebar_logo img {
+  width: 80%;
 }
-.sidebar_menu a{
-    color: var(--theam-color);
-    line-height: 50px;
+.sidebar_menu a {
+  color: var(--theam-color);
+  line-height: 50px;
 }
-@media (max-width:1000px){
-    .menus a, .menus button {
-        margin: 5px 9px;
-    }
+
+/* Footer section */
+.footer_section {
+  text-align: center;
+  background-color: #f0fff0;
 }
-@media (max-width:950px) {
-    .logo{
-        width: 50%;
-    }
-    .menus a,.first_btn {
-        display: none;
-    }
-    
-    .sidebar_button button{
-        display: block;
-    }
-    .sidebar_content{
-        width: 75%;
-    }
+.social_media,
+.menu_footer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
 }
-@media (max-width:550px) {
-    .logo{
-        width: 100%;
-    }
-    .sidebar_content{
-        width: 90%;
-    }
+.social_media {
+  font-size: 25px;
+}
+.menu_footer {
+  margin: 15px 25%;
+}
+.menu_footer a {
+  text-decoration: none;
+  color: #1e3932;
+  font-size: 20px;
+  font-weight: 300;
+}
+.media i {
+  border: 2px solid #1e3932;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  line-height: 50px;
+  cursor: pointer;
+}
+.media i:hover {
+  color: white;
+  border: none;
+  line-height: 55px;
+  object-fit: cover;
+}
+.social_media .media:nth-child(1) i:hover {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIwZxMnqKj-P-L2WNYOH1ZqxbVfDpD1lhhHQ&s");
+}
+.social_media .media:nth-child(2) i:hover {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQNo-vSLzKQx5ojFtRLEzYlYn2_aEPm8dTEQ&s");
+}
+.social_media .media:nth-child(3) i:hover {
+  background: url("https://static.vecteezy.com/system/resources/thumbnails/014/267/319/small_2x/colorful-abstract-blurred-gradient-background-red-and-orange-color-gradient-background-animation-free-video.jpg");
+}
+.social_media .media:nth-child(4) i:hover {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScLfocMQ-yog6puEWy4PQYz3HyU_pPMozcTg&s");
+}
+.social_media .media:nth-child(5) i:hover {
+  background: url("https://img.freepik.com/free-photo/grunge-black-concrete-textured-background_53876-124541.jpg");
+}
+.menu_footer {
+  margin-top: 50px;
+}
+.copy_right {
+  margin-top: 80px;
+}
+@media (max-width: 1000px) {
+  .menus a,
+  .menus button {
+    margin: 5px 9px;
+  }
+}
+@media (max-width: 950px) {
+  .logo {
+    width: 50%;
+  }
+  .menus a,
+  .first_btn {
+    display: none;
+  }
+
+  .sidebar_button button {
+    display: block;
+  }
+  .sidebar_content {
+    width: 75%;
+  }
+}
+@media (max-width: 550px) {
+  .logo {
+    width: 100%;
+  }
+  .sidebar_content {
+    width: 90%;
+  }
+  
 }

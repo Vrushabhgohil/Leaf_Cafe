@@ -13,3 +13,6 @@
     object-fit: cover;
     border-radius: 50%;
 }
+.form_submit{
+    display: none;
+}

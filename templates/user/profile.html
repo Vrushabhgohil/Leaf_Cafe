@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="{{url_for('static',filename='profile.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='profile.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='common.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='form.css')}}">
     <title>Leaf Cafe</title>
@@ -22,36 +22,57 @@
             <h2>Your Account With <span>Leaf Cafe</span></h2>
         </div>
         <div class="form_section text-left">
-            <a href="{{url_for('project_api.home',tenant=tenant)}}" style="color: black;"><i class="fa-solid fa-left-long"></i> Back</a>
-
+            <a href="{{url_for('project_api.home',tenant=tenant)}}" style="color: black;"><i
+                    class="fa-solid fa-left-long"></i> Back</a>
+            {% if user %}
             <div class="image_dp mt-3">
-                <img src="{{ url_for('static', filename='users_dp/' + user.dp_addr) }}"
-                    alt="" srcset="">
+                <img src="{{ url_for('static', filename='users_dp/' + user.dp_addr) }}" alt="" srcset="">
             </div>
-            <form action="">
+            <form action="{{url_for('user_api.update_profile',tenant=tenant)}}" method="post">
                 <h4 style="font-size: 20px;color: gray;" class="mt-5">PERSONAL INFORMATION</h4>
                 <div class="input-field mt-4">
                     <label>* Username</label> <br>
-                    <input type="text" name="" id="" value="{{user.name}}" disabled>
+                    <input type="text" name="uname" class="profile-input" value="{{user.name}}" disabled>
                 </div>
                 <div class="input-field mt-4">
                     <label>phone number</label> <br>
-                    <input type="tel" name="" id="" value="{{user.phone}}" disabled>
+                    <input type="tel" name="uphone" class="profile-input" value="{{user.phone}}" disabled>
                 </div>
                 <h4 style="font-size: 20px;color: gray;" class="mt-5">Account Security</h4>
                 <div class="input-field mt-4">
                     <label>* email</label> <br>
-                    <input type="email" name="" id="" value="{{user.email}}" disabled>
+                    <input type="email" name="uemail" class="profile-input" value="{{user.email}}" disabled>
                 </div>
                 <div class="input-field mt-4">
                     <label>Password</label> <br>
-                    <input type="password" name="" id="" value="{{user.password}}" disabled>
+                    <input type="password" name="upswd" class="profile-input" value="{{user.password}}" disabled>
                 </div>
-
-                <button class="form_submit">Save Changes</button>
+                <button class="form_submit" id="save-btn">Save Changes</button>
+            {% endif %}
             </form>
+            <h5 class="mt-5">Do you want to edit Your Profile ?? <button id="edit-btn"
+                    class="btn btn-outline-success">Yess</button> </h5>
         </div>
     </div>
+    {% if msg %}
+    <div class="error_message container alert alert-danger">
+        <div id="message_content">{{msg}}</div>
+    </div>
+    {% endif %}
+    <script>
+        const editBtn = document.getElementById('edit-btn');
+        const saveBtn = document.getElementById('save-btn');
+        const inputs = document.querySelectorAll('.profile-input');
+        function enableInputs() {
+            inputs.forEach(input => {
+                input.disabled = false;
+            });
+            saveBtn.style.display = 'block'; // Show the save button
+        }
+
+        // Event listener for the edit button
+        editBtn.addEventListener('click', () => enableInputs());
+    </script>
 </body>
 
 </html>

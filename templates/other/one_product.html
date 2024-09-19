@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url_for('static',filename='one_product.css')}}">
+    <title>Leaf Cafe</title>
+</head>
+{% extends 'other/header_footer.html'%}{% block body %}
+<body>
+
+    <div class="back_section container mt-5 mb-4">
+        <a href="{{url_for('project_api.home',tenant=tenant)}}" class="text-decoration-none text-dark">Home / </a>
+        <a href="{{url_for('project_api.menu',tenant=tenant)}}" class="text-decoration-none text-dark">Menu / </a>
+        <a href="#" class="text-decoration-none text-dark">{{product.name}}</a>
+    </div>
+    {% if product %}
+    <div class="container-fluid products_section">
+        <div class="cold-brew-section">
+            <div class="cold-brew-image">
+                <img src="{{ url_for('static', filename='users_dp/' + product.image_addr) }}" alt="{{product.name}}">
+            </div>
+            <div class="cold-brew-details">
+                <h1>{{product.name}}</h1>
+                <p>{{product.ptype}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="details_section container mt-5 mb-5">
+        <div class="product_details">
+            <h3>at a Glance</h3>
+            <div class="box">
+                <label>Name</label>
+                <br>
+                <p>{{product.name}}</p>
+
+            </div>
+            <div class="box">
+                <label>Price</label>
+                <br>
+                <p>Rs. <span id="price">{{product.price}}</span></p>
+
+            </div>
+            <div class="box">
+                <label style="top: 5% !important;">Description</label>
+                <br>
+                <p>{{product.desc}}</p>
+
+            </div>
+        </div>
+        <div class="order_details ">
+            <h3 style="text-align: right;">Ready to Add?</h3>
+            <div class="order_box mt-5">
+                <div class="box1">
+                    <label>Quantity</label>
+                    <p>
+                        <button id="decrease" class="counter-btn"><i class="fa-solid fa-minus"></i></button>
+                        <span id="counter" class="counter-value">1</span>
+                        <button id="increase" class="counter-btn"><i class="fa-solid fa-plus"></i></button>
+                    </p>
+                </div>
+                <div class="box1">
+                    <label>Total Amount</label>
+                    <p>Rs. <span id="total-amount">{{product.price}}</span></p>
+                </div>
+                
+                <div class="submitbtn" style="text-align: right;">
+                    <button class="btn btn-outline-success p-2 w-50" style="font-size: 17px;">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <script>
+        const price = parseFloat(document.getElementById("price").innerText);
+        let quantity = parseInt(document.getElementById("counter").innerText);
+
+        const decreaseBtn = document.getElementById("decrease");
+        const increaseBtn = document.getElementById("increase");
+        const totalAmountElem = document.getElementById("total-amount");
+        const counterElem = document.getElementById("counter");
+
+        // Function to update the total amount
+        function updateTotalAmount() {
+            const totalAmount = price * quantity;
+            totalAmountElem.innerText = totalAmount.toFixed(2); // Update the total amount
+        }
+
+        // Decrease quantity
+        decreaseBtn.addEventListener("click", () => {
+            if (quantity > 1) {
+                quantity--;
+                counterElem.innerText = quantity;
+                updateTotalAmount();
+            }
+        });
+
+        // Increase quantity
+        increaseBtn.addEventListener("click", () => {
+            if (quantity < 10) {
+                quantity++;
+            }
+            counterElem.innerText = quantity;
+            updateTotalAmount();
+        });
+    </script>
+</body>
+{% endblock %}
+
+</html>

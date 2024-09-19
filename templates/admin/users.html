@@ -21,13 +21,17 @@
                 <div class="image">
                     <img src="{{url_for('static',filename='users_dp/' + i.dp_addr) }}" alt="" srcset="">
                 </div>
-                
+
                 <div class="details">
                     <p><b> {{i.name}} </b><br> {{i.email}} </p>
                 </div>
                 <div class="btn_section">
-                    <button class="btn btn-success">Details</button>
-                    <button class="btn btn-danger">Block</button>
+                    <form action="{{url_for('admin_api.details_user',id=i.id,tenant=tenant)}}">
+                        <button class="btn btn-success">Details</button>
+                    </form>
+                    <form action="{{url_for('admin_api.block_user',id=i.id,tenant=tenant)}}">
+                        <button class="btn btn-danger">Block</button>
+                    </form>
                 </div>
             </div>
             {% endfor %}

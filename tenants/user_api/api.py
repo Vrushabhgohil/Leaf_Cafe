@@ -41,6 +41,17 @@ def profile(tenant):
         return render_template('user/profile.html',tenant=tenant,user=user)
     return "No Data available"
 
+@user_api.route('/update_profile/<string:tenant>',methods=['GET','POST'])
+def update_profile(tenant):
+    user = Users.query.get(tenant)
+    if user:
+        update(user)
+        return redirect(url_for('user_api.profile',tenant=tenant))
+    msg="User's details is not Update"
+    return render_template('user/profile.html',tenant=tenant,msg=msg)
+
+
+
 @user_api.route('/logout/<string:tenant>')
 def logout(tenant):
     return "This is logout api"

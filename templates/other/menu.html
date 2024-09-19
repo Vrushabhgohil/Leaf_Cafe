@@ -40,10 +40,13 @@
                         {% for i in product %}
                         {% if i.ptype == "Drinks" %}
                         <div class="product_data">
-                            <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
-                                alt="{{ i.name }} Image" srcset="">
-                            <br>
-                            {{ i.name }}
+                            <a href="{{url_for('project_api.one_product',pid=i.id,tenant=tenant)}}"
+                                class="text-decoration-none text-dark">
+                                <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
+                                    alt="{{ i.name }} Image" srcset="">
+                                <br>
+                                {{ i.name }}
+                            </a>
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -59,16 +62,19 @@
                         {% for i in product %}
                         {% if i.ptype == "Snacks" %}
                         <div class="product_data">
-                            <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
-                                alt="{{ i.name }} Image" srcset="">
-                            <br>
-                            {{ i.name }}
+                            <a href="{{url_for('project_api.one_product',pid=i.id,tenant=tenant)}}"
+                                class="text-decoration-none text-dark">
+                                <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
+                                    alt="{{ i.name }} Image" srcset="">
+                                <br>
+                                {{ i.name }}
+                            </a>
                         </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
                 </div>
             </div>
-            {% endfor %}
 
             <!-- Sweets Section -->
             <div class="sweets" id="sweets">
@@ -78,10 +84,13 @@
                         {% for i in product %}
                         {% if i.ptype == "Sweets" %}
                         <div class="product_data">
-                            <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
-                                alt="{{ i.name }} Image" srcset="">
-                            <br>
-                            {{ i.name }}
+                            <a href="{{url_for('project_api.one_product',pid=i.id,tenant=tenant)}}"
+                                class="text-decoration-none text-dark">
+                                <img src="{{ url_for('static', filename='users_dp/' + i.image_addr) }}"
+                                    alt="{{ i.name }} Image" srcset="">
+                                <br>
+                                {{ i.name }}
+                            </a>
                         </div>
                         {% endif %}
                         {% endfor %}

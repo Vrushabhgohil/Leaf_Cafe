@@ -29,13 +29,14 @@ def updateProduct(product,id):
     qty = request.form.get('qty')
     desc = request.form.get('desc')
     ptype = request.form.get('ptype')
+    product.added_at 
     if name:
         product.name = name
     if price:
         product.price = price
     if qty:
         product.qty = qty
-    if desc:
+    if desc:    
         product.desc = desc
     if ptype:
         product.ptype = ptype

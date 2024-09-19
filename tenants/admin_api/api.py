@@ -50,6 +50,21 @@ def update_product(id,tenant):
         return redirect(url_for('admin_api.products',tenant=tenant))
     return render_template('admin/update_product.html',tenant=tenant,product=product)
 
+# DETAILS OF USER
+@admin_api.route('/leafcafe/admin/user/profile/<string:tenant>/<string:id>')
+def details_user(id,tenant):
+    user = Users.query.get(id)
+    return render_template('admin/user_details.html',tenant=tenant,user=user)
+
+# BLOCK A USER
+@admin_api.route('/leafcafe/admin/user/block/<string:tenant>/<string:id>')
+def block_user(id,tenant):
+    user = Users.query.get(id)
+    user.user_status = "Block"
+    user.is_active = False
+    db.session.commit()
+    return render_template('admin/user_details.html',tenant=tenant,user=user)
+
 
 # LAUNCH NEW OFFER
 @admin_api.route('/leafcafe/admin/offers/add/<string:tenant>',methods=['GET','POST'])

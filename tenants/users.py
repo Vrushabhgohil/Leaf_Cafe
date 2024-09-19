@@ -41,3 +41,30 @@ def User_profile(uid):
     if details:
         return details
     return False
+
+def update(user):
+    username = request.form.get('uname')
+    phone = request.form.get('uphone')
+    email = request.form.get('uemail')
+    pswd = request.form.get('upswd')
+
+    print("Old username: " + user.name)
+    print("Old phone: " + user.phone)
+    print("Old email: " + user.email)
+    print("Old password: " + user.password)
+    print("--------------------------------")
+    print(f"New username: {username}")
+    print(f"New phone: {phone}")
+    print(f"New email: {email}")
+    print(f"New password: {pswd}")
+
+    user.name = username
+    user.phone = phone
+    user.email = email
+    user.password = pswd
+    try:
+        db.session.commit()
+        print("Update successful")
+    except Exception as e:
+        print(f"Error updating user: {e}")
+        db.session.rollback() 

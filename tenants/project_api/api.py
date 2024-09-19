@@ -28,6 +28,16 @@ def menu(tenant):
 def find_store(tenant):
     return render_template('other/find_store.html',tenant=tenant)
 
-@project_api.route('/contect_us/<string:tenant>')
-def contect_us(tenant):
-    return render_template('other/contectus.html',tenant=tenant)
+@project_api.route('/rewards/<string:tenant>')
+def rewards(tenant):
+    offer = Special.query.order_by(Special.added_at.desc())
+    return render_template('other/rewards.html',tenant=tenant,offer=offer)
+
+@project_api.route('/about_us/<string:tenant>')
+def about_us(tenant):
+    return render_template('other/aboutus.html',tenant=tenant)
+
+@project_api.route('/menus/<string:pid>/<string:tenant>')
+def one_product(pid,tenant):
+    product = Product.query.filter_by(id=pid).first()
+    return render_template('other/one_product.html',product=product,tenant=tenant)

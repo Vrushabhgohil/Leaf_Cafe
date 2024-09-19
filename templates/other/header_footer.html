@@ -16,8 +16,8 @@
     <title>Leaf Cafe</title>
 </head>
 
-<body class="container">
-    <div class="header_section">
+<body>
+    <div class="header_section container">
         <div class="part_one">
             <div class="logo">
                 <a href="{{url_for('project_api.home',tenant=tenant)}}">
@@ -28,10 +28,10 @@
                     <a href="{{url_for('project_api.menu',tenant=tenant)}}">Menu</a>
                 </div>
                 <div>
-                    <a href="#">Rewards</a>
+                    <a href="{{url_for('project_api.rewards',tenant=tenant)}}">Rewards</a>
                 </div>
                 <div>
-                    <a href="{{url_for('project_api.contect_us',tenant=tenant)}}">Contect Us</a>
+                    <a href="{{url_for('project_api.about_us',tenant=tenant)}}">About Us</a>
                 </div>
             </div>
         </div>
@@ -59,10 +59,10 @@
                 <a href="{{url_for('project_api.menu',tenant=tenant)}}">Menu</a>
             </div>
             <div>
-                <a href="#">Rewards</a>
+                <a href="{{url_for('project_api.rewards',tenant=tenant)}}">Rewards</a>
             </div>
             <div>
-                <a href="{{url_for('project_api.contect_us',tenant=tenant)}}">Contect us</a>
+                <a href="{{url_for('project_api.about_us',tenant=tenant)}}">About us</a>
             </div>
             <div>
                 <a href="{{url_for('project_api.find_store',tenant=tenant)}}">Find Store</a>
@@ -79,6 +79,46 @@
     </div>
     {% block body %}{% endblock %}
 
+
+    <div class="footer_section pt-5">
+        <div class="social_media container">
+            <div class="media">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="media">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="media">
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+            <div class="media">
+                <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="media">
+                <i class="fa-brands fa-x"></i>
+            </div>
+        </div><br>
+        <div class="menu_footer">
+            <div class="link">
+                <a href="{{url_for('project_api.home',tenant=tenant)}}">Home</a>
+            </div>
+            <div class="link">
+                <a href="{{url_for('project_api.menu',tenant=tenant)}}">Menu</a>
+            </div>
+            <div class="link">
+                <a href="{{url_for('project_api.rewards',tenant=tenant)}}">Rewards</a>
+            </div>
+            <div class="link">
+                <a href="{{url_for('project_api.about_us',tenant=tenant)}}">About Us</a>
+            </div>
+            <div class="link">
+                <a href="{{url_for('project_api.find_store',tenant=tenant)}}">Find Store</a>
+            </div>
+        </div>
+        <div class="copy_right" >
+                <p class="mb-0 pb-4">© 2024 Leaf Cafe Coffee Company. All rights reserved.</p>
+        </div>
+    </div>
     <script>
         $(document).ready(function () {
             $(".sidebar_content").hide();

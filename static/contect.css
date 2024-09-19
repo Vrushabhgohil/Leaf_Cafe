@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-.contect_us_title{
+.about_us_title{
     position: sticky;
     top: 0;
     height: 100vh;
@@ -15,7 +15,7 @@
     font-size: 25px;
     box-shadow: var(--shadow);
 }
-.contect_us_desc{
+.about_us_desc{
     flex: 60%;
     padding: 5%;
 }
@@ -43,7 +43,7 @@
     .content_us_section{
         display: inline;
     }
-    .contect_us_title{
+    .about_us_title{
         height: 16vh;
         padding: 12px;
         line-height: 12vh;
